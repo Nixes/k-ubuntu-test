@@ -3,7 +3,8 @@ FROM ubuntu:latest
 RUN echo "deb http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
 
 # install and configure php
-RUN apt-get install -y \
+RUN apt-get update && \
+  apt-get install -y \
 	php7.0 \
 	php7.0-bz2 \
 	php7.0-cgi \
