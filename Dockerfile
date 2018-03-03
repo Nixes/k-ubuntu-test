@@ -1,5 +1,4 @@
 FROM ubuntu:latest
-MAINTAINER leafney "babycoolzx@126.com"
 
 RUN echo "deb http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
 
@@ -24,10 +23,4 @@ RUN sed -i -e "$ a [client]\n\n[mysql]\n\n[mysqld]"  /etc/mysql/my.cnf && \
 
 VOLUME /var/lib/mysql
 
-COPY ./startup.sh /root/startup.sh
-RUN chmod +x /root/startup.sh
-
-ENTRYPOINT ["/root/startup.sh"]
-
-EXPOSE 3306
 CMD ["/usr/bin/mysqld_safe"]
