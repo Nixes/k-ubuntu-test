@@ -34,6 +34,9 @@ RUN apt-get update && \
 	composer \
 	curl \
 	sudo
+	
+# install composer extension to allow faster composer install
+RUN composer global require hirak/prestissimo
 
 # install and configure db
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
