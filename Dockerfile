@@ -56,4 +56,7 @@ RUN sed -i -e "$ a [client]\n\n[mysql]\n\n[mysqld]"  /etc/mysql/my.cnf && \
 # for some reason a writable volume is required for databases
 VOLUME /var/lib/mysql
 
+# enable sudo for docker user
+RUN echo "docker ALL=NOPASSWD: ALL" >> /etc/sudoers
+
 CMD ["/usr/bin/mysqld_safe"]
