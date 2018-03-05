@@ -32,7 +32,8 @@ RUN apt-get update && \
 	libapache2-mod-php7.0 \
 	git \
 	composer \
-	curl
+	curl \
+	sudo
 
 # install and configure db
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
