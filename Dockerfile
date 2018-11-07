@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+FROM ubuntu:xenial
 
-RUN echo "deb http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
 
 # install and configure php
 RUN apt-get update && \
