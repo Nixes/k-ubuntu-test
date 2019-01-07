@@ -1,6 +1,6 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse" >> /etc/apt/sources.list
 
 # install and configure php
 RUN apt-get update && \
