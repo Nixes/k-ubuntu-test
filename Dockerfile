@@ -15,7 +15,6 @@ RUN apt-get update && \
 	php-gmp \
 	php-imap \
 	php-json \
-	php-mcrypt \
 	php-mysql \
 	php-odbc \
 	php-opcache \
