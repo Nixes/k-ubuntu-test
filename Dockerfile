@@ -28,6 +28,7 @@ RUN apt-get update && \
 	php7.0-soap \
 	php7.0-mbstring \
 	php7.0-xsl \
+	php-intl \
 	apache2 \
 	libapache2-mod-php7.0 \
 	git \
