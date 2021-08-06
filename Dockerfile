@@ -28,7 +28,6 @@ RUN apt-get update && \
 	php-soap \
 	php-mbstring \
 	php-xsl \
-
 	php-intl \
 	apache2 \
 	libapache2-mod-php \
@@ -52,6 +51,9 @@ RUN apt-get update && \
 	chown -R mysql:mysql /var/lib/mysql && \
 	chown -R mysql:mysql /var/run/mysqld && \
 	chown -R mysql:mysql /var/log/mysql
+
+# install latest LTS edition of nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && apt-get install -y nodejs
 
 # UTF-8 and bind-address
 RUN sed -i -e "$ a [client]\n\n[mysql]\n\n[mysqld]"  /etc/mysql/my.cnf && \
