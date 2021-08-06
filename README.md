@@ -1,4 +1,9 @@
-Docker + Ubuntu-16.04 + Mysql-5.7
+Docker + Ubuntu-18.04 + Mysql-5.7 + php
+Push with 
+```
+docker build  -t nixes/k-ubuntu-test:master . 
+docker push nixes/k-ubuntu-test:master
+```
 
 #### parameter
 
