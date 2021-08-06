@@ -1,36 +1,37 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
+# prevent errors installing tzdata
+ENV DEBIAN_FRONTEND=noninteractive
 
 # install and configure php
 RUN apt-get update && \
 	apt-get install -y \
-	php7.0 \
-	php7.0-bz2 \
-	php7.0-cgi \
-	php7.0-cli \
-	php7.0-common \
-	php7.0-curl \
-	php7.0-dev \
-	php7.0-fpm \
-	php7.0-gd \
-	php7.0-gmp \
-	php7.0-imap \
-	php7.0-json \
-	php7.0-mcrypt \
-	php7.0-mysql \
-	php7.0-odbc \
-	php7.0-opcache \
-	php7.0-phpdbg \
-	php7.0-xmlrpc \
+	php \
+	php-bz2 \
+	php-cgi \
+	php-cli \
+	php-common \
+	php-curl \
+	php-dev \
+	php-fpm \
+	php-gd \
+	php-gmp \
+	php-imap \
+	php-json \
+	php-mysql \
+	php-odbc \
+	php-opcache \
+	php-phpdbg \
+	php-xmlrpc \
 	php-imagick \
-	php7.0-zip \
-	php7.0-soap \
-	php7.0-mbstring \
-	php7.0-xsl \
+	php-zip \
+	php-soap \
+	php-mbstring \
+	php-xsl \
+
 	php-intl \
 	apache2 \
-	libapache2-mod-php7.0 \
+	libapache2-mod-php \
 	git \
 	composer \
 	curl \
