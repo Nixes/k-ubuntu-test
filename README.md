@@ -1,4 +1,4 @@
-Docker + Ubuntu-18.04 + Mysql-5.7 + php
+Docker + Ubuntu-18.04 + Mysql-5.7 + php + lts nodejs
 
 
 #### Build and push with 
