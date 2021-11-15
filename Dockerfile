@@ -3,6 +3,11 @@ FROM ubuntu:bionic
 # prevent errors installing tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
+# automatic mirror selection to speed up docker build in non US locatons
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic main restricted universe multiverse" > /etc/apt/sources.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-security main restricted universe multiverse" >> /etc/apt/sources.list
+
 # install and configure php
 RUN apt-get update && \
 	apt-get install -y \
@@ -38,6 +43,11 @@ RUN apt-get update && \
 	
 # install composer extension to allow faster composer install
 RUN composer global require hirak/prestissimo
+
+# install chrome so we can run angular tests
+RUN apt update && apt install -y --no-install-recommends chromium-browser
+# set chrome binary location to chromium for angular tests to pick up
+ENV CHROME_BIN=chromium
 
 # install and configure db
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
