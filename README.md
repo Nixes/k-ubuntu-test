@@ -31,3 +31,7 @@ $ docker run --name mysql -v /var/docker_data/mysql/data/:/var/lib/mysql -d -p 3
 ```
 $ docker run --name mysql -v /var/docker_data/mysql/data/:/var/lib/mysql -d -p 3306:3306 -e MYSQL_ROOT_PWD=123 -e MYSQL_USER=dev -e MYSQL_USER_PWD=dev -e MYSQL_USER_DB=userdb nixes/k-ubuntu-test
 ```
+
+## Troubleshooting
+
+If you get an issue mentioning permissions when downloading, try doing a docker pull manually on the ci server first and retrying.
