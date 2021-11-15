@@ -44,6 +44,11 @@ RUN apt-get update && \
 # install composer extension to allow faster composer install
 RUN composer global require hirak/prestissimo
 
+# install chrome so we can run angular tests
+RUN apt update && apt install -y --no-install-recommends chromium-browser
+# set chrome binary location to chromium for angular tests to pick up
+ENV CHROME_BIN=chromium
+
 # install and configure db
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
