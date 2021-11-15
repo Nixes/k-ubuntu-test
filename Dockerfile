@@ -3,6 +3,11 @@ FROM ubuntu:bionic
 # prevent errors installing tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
+# automatic mirror selection to speed up docker build in non US locatons
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic main restricted universe multiverse" > /etc/apt/sources.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-security main restricted universe multiverse" >> /etc/apt/sources.list
+
 # install and configure php
 RUN apt-get update && \
 	apt-get install -y \
